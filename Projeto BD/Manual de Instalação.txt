@@ -1,0 +1,7 @@
+O nosso programa é constituído por um servidor RMI - RMIserver.jar(que faz a conexão com a BD), um servidor TCP - TCPserver.jar(que faz a conexão entre cliente e o servidor RMI) e clientes(client.jar).
+A libraria de ligação ao oracle é ojdbc7.jar.
+Para o programa estar apto para receber clientes, é preciso executar alguns passos primeiro:
+	1) Para correr o servidor RMI,tem de ter a base de dados ligada, abra um novo terminal e vá até à pasta do programa ("LeiloesInvertidos") e corra o ficheiro RMIserver.jar com o seguinte comando : "java -jar RMIserver.jar".
+	2) Para abrir o servidor TCP, abra um novo terminal e vá até à pasta do programa ("LeiloesInvertidos") e corra o ficheiro TCPserver.jar com o seguinte comando: "java -jar TCPserver.jar 6000".
+	3) Para correr cada client, corra o ficheiro client.jar no terminal que recebe como argumentos o ip e a porta no qual se vai connectar
+	PS: Por definição no client.jar, o ip é localhost e a porta é 6000.

@@ -1,0 +1,71 @@
+O nosso programa segue a metodologia da 1ª meta de SD:
+
+Para se registar no nosso programa, use o seguinte o comando:
+	"type: register, username: [yourUsername], password: [yourPassword]"
+	(Ex:. "type: register, username: pierre, password: omidyar")
+	Se a operação for bem sucedida, receberá uma resposta "type: register, ok: true"
+	No entanto se a operação for mal sucedida, a resposta será "type: register, ok: false"
+
+Para emitir um pedido de login, use o seguinte comando:
+	"type: login, username: [yourUsername], password: [yourPassword]"
+	(Ex:. "type: login, username: pierre, password: omidyar")
+	Se a operação for bem sucedida, receberá uma resposta "type: login, ok: true"
+	No entanto se a operação for mal sucedida, a resposta será "type: login, ok: false"
+
+Para criar um novo leilão, use o seguinte comando:
+	"type: create_auction, code:[inputCode], title:[inputTitle],description:[inputDescription], deadline:[aaaa-mm-dd hh-mm], amount: [inputAmount]"
+	(Ex:. "type : create_auction , code:9780451524935, title : 1984, description : big brother is watching you , deadline : 2017-01-01 00-01, amount: 10")
+	Se a operação for bem sucedida, receberá uma resposta "type: login, ok: true"
+	No entanto se a operação for mal sucedida, a resposta será "type: login, ok: false"
+
+Para pesquisar um leilão através de um código identificador de artigo, use o seguinte comando:
+	"type: search_auction, code: [inputCode]"
+	(Ex:. "type : search_auction , code:9780451524935")
+	Se não houverem leilões com esse artigo, deverá receber a seguinte resposta: "type : search_auction , items_count : 0 "
+	Por outro lado, se existirem leilões será retornada uma mensagem com o id,código e titulo de cada leilão.
+
+Para consultar os detalhes de um determinado leilão, use o seguinte comando:
+	"type: detail_auction, id:[idLeilao]"
+	(Ex:. "type : detail_auction , id:0")
+	Se esse leilão existir, uma possível resposta será:
+	"type : detail_auction , title : 1984, description : big brother is watching you , deadline : 2017−01−01 00−01, messages_count: 2, messages_0_user: pierre , messages_0_text : qual a editora ?, messages_1_user: pierre , messages_1_text : entretanto vi que era a antigona , bids_count : 0"
+
+Para consultar todos os leilões em que o utilizador tenha atividade, use o seguinte comando:
+	"type: my_auctions"
+	Uma possível resposta será:
+	"type : my_auctions , items_count : 2, items_0_id : 0, items_0_code: 9780451524935, items_0_title : 1984, items_1_id : 1, items_1_code: 9780451524935, items_1_title : 1984 usado"
+
+Para efetuar uma licitação num determinado leilão, use o seguinte comando:
+	"type: bid, id: [idLeilao], amount: [inputAmount]"
+	(Ex:. "type : bid , id : 0, amount: 9")
+	Se a operação for bem sucedida, receberá uma resposta "type: bid, ok: true"
+	No entanto se a operação for mal sucedida, a resposta será "type: bid, ok: false"
+
+Nos leilões só podem ser editados os elementos textuais, isto é, o título, a descrição e a deadline. Para editar um leilão, use o seguinte comando:
+	"type: edit_auction, id: [idLeilao], [title/description/deadline]: [input]"
+	(Ex:. "type : edit_auction , id : 0, deadline : 2017−01−02 00−01")
+	Se a operação for bem sucedida, receberá uma resposta "type: edit_auction, ok: true"
+	No entanto se a operação for mal sucedida, a resposta será "type: edit_auction, ok: false"
+
+Para escrever uma mensagem no leilão, use o seguinte comando:
+	"type: message, id: [idLeilao], text: [inputMessage]"
+	(Ex:. "type : message , id : 0, text : alguma editora em especial?")
+	Se a operação for bem sucedida, receberá uma resposta "type: message, ok: true"
+	No entanto se a operação for mal sucedida, a resposta será "type: message, ok: false"
+
+Para listar os utilizador onlines, use o seguinte comando:
+	"type: online_users"
+	Uma possível resposta, poderá ser:
+	"type : online_users , users_count : 2, users_0_username: pierre , users_1_username: elon"
+
+Para cancelar um leilão, use o seguinte comando:
+	"type: cancel_auction, id: [idLeilao]"
+	(Ex:. "type: cancel_auction, id: 0")
+	Se a operação for bem sucedida, receberá uma resposta "type: cancel_auction, ok: true"
+	No entanto se a operação for mal sucedida, a resposta será "type: cancel_auction, ok: false"
+
+Para banir um utilizador, use o seguinte comando:
+	"type: ban, username: [inputUser]"
+	(Ex:. "type: ban, username: pierre")
+	Se a operação for bem sucedida, receberá uma resposta "type: ban, ok: true"
+	No entanto se a operação for mal sucedida, a resposta será "type: ban, ok: false"
